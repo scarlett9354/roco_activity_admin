@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "start": "gulp sass && npm run serve",
+    "mock": "gulp sass && vue-cli-service serve --mock",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "sh bin/build.sh",
+    "build-old": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
