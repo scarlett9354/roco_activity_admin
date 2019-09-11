@@ -18,4 +18,12 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+.cache/
+static/css/*
+static/element/*
+public/static/css/*
+dist.zip
+admin.tar.gz
+vendor-manifest.json
+/admin/
+logs/
