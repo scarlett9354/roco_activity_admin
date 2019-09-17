@@ -1,8 +1,8 @@
 <template>
-  <div>登录</div>
+  <div class="login">a</div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: 'Login'
 }

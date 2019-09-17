@@ -1,0 +1,180 @@
+/* 改变主题色变量  #2d8bef*/
+$--color-primary: rgb(45, 139, 239);
+$--table-border: 1px solid #dfe6ee;
+$--color-text-primary: #333333;
+$--color-text-regular: #333333;
+$--table-header-color: #333333;
+
+/* Menu
+--------------------------*/
+$--menu-item-color: #666666;
+$--menu-item-fill: #ffffff;
+$--menu-item-hover-fill: #ffffff;
+
+/* 新增自定义变量 */
+
+/* main-header
+--------------------------*/
+$--menu-bg: #ffffff;     //侧导航菜单背景色
+$--main-header-bg: #ffffff;
+$--main-header-border: #d6d6d6;
+$--color-text-breadcrumb-nolink: #999999;
+$--color-text-dropdown: #333333;
+$--font-size-header: 12px;
+//新增菜单自定义色值
+$--submenu-item-hover-fill: $--color-primary;
+$--menu-item-hover-color: #ffffff;
+$--menu-item-icon-color: #cccccc;
+$--menu-item--hover-icon-color: #ffffff;
+
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '../element';
+@import "../../node_modules/element-ui/packages/theme-chalk/src/index";
+
+
+.el-menu{
+  border-right: none;
+}
+//重置退出登录字大小
+.el-dropdown-menu__item{
+  font-size: $--font-size-header !important;
+}
+//根据导航条的颜色修改面包屑等组件的字体色
+@include b(breadcrumb) {
+  font-size: $--font-size-header;
+  @include e(separator) {
+    font-weight: normal;
+    color: $--color-text-primary;
+  }
+
+  @include e(item) {
+
+    @include e(inner) {
+      &, & a {
+        font-weight: normal;
+        color: $--color-text-primary;
+      }
+    }
+
+    &:last-child {
+      .el-breadcrumb__inner,
+      .el-breadcrumb__inner a {
+        &, &:hover {
+          color: $--color-text-breadcrumb-nolink;
+        }
+      }
+    }
+  }
+}
+
+//侧导航子菜单下的级联菜单项
+@include b(menu-item) {
+  @include m(collapse) {
+    width: 63px !important;
+  }
+  @include menu-item;
+  i {
+    color: $--menu-item-icon-color !important;
+  }
+  &:hover, &:focus {
+    background-color: $--submenu-item-hover-fill !important;
+    color: $--menu-item-hover-color !important;
+
+    i {
+      color: $--menu-item--hover-icon-color !important;
+    }
+  }
+  @include when(active) {
+    background-color: $--submenu-item-hover-fill !important;
+    color: $--menu-item-hover-color !important;
+    i {
+      color: $--menu-item--hover-icon-color !important;
+    }
+  }
+
+}
+
+//侧导航子菜单项
+@include b(submenu) {
+  @include e(title) {
+    position: relative;
+    @include menu-item;
+    i {
+      color: $--menu-item-icon-color !important;
+    }
+  }
+}
+
+//table样式重置
+.el-table__header tr{
+  background: #e5e9f2;
+}
+.el-table__header td,
+.el-table__header th{
+   border-right-color: #c8c8c8;
+   font-weight: normal !important;
+}
+
+//给table加不同的状态 - 采用element-ui radio 以下样式无用
+// .el-table .primary-row {
+//   background: $--color-primary-light-9;
+//   .row-radio {
+//     border-color: $--color-primary;
+//     background: $--color-primary;
+//   }
+// }
+// .el-table .warning-row {
+//   background: $--color-warning-lighter;
+//   .row-radio {
+//     border-color: $--color-warning;
+//     background: $--color-warning;
+//   }
+// }
+// .el-table .success-row {
+//   background: $--color-success-lighter;
+//   .row-radio {
+//     border-color: $--color-success;
+//     background: $--color-success;
+//   }
+// }
+// .el-table .danger-row {
+//   background: $--color-danger-lighter;
+//   .row-radio {
+//     border-color: $--color-danger;
+//     background: $--color-danger;
+//   }
+// }
+// .el-table .info-row {
+//   background: $--color-info-lighter;
+//   .row-radio {
+//     border-color: $--color-info;
+//     background: $--color-info;
+//   }
+// }
+
+.el-table .el-button+.el-button{
+  margin-left: 5px !important;
+}
+//tree样式重置
+@include b(tree-node) {
+  &:focus { /* focus */
+    > .el-tree-node__content {
+      // background-color: $--tree-node-hover-color;
+      background-color: transparent;
+      color: $--color-primary;
+    }
+  }
+  @include e(content) {
+    &:hover {
+      // background-color: $--tree-node-hover-color;
+      background-color: transparent;
+      color: $--color-primary;
+    }
+  }
+}
+.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
+  // background-color: mix($--color-white, $--color-primary, 92%);
+  background-color: transparent;
+  color: $--color-primary;
+}

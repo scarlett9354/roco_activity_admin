@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "gulp sass && npm run serve",
-    "mock": "gulp sass && vue-cli-service serve --mock",
+    "start": "gulp && npm run serve",
+    "mock": "gulp && vue-cli-service serve --mock",
     "serve": "vue-cli-service serve",
     "build": "sh bin/build.sh",
     "build-old": "vue-cli-service build",

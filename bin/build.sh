@@ -8,7 +8,7 @@ rm -rf ./src/main/resources/static/admin/static
 rm -rf ./src/main/resources/templates/page/admin/
 
 cd ../roco_activity_admin || exit
-gulp sass
+gulp
 vue-cli-service build
 
 

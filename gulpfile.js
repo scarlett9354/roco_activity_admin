@@ -9,14 +9,14 @@ var sass = require('gulp-sass')
 var autoprefixer = require('gulp-autoprefixer')
 var cleanCSS = require('gulp-clean-css')
 
-gulp.task('element-font', done => {
+gulp.task('element-font', (done) => {
   gulp.src('node_modules/element-ui/lib/theme-chalk/fonts/*.*')
     .pipe(gulp.dest('./public/static/element'))
   done()
 })
 
 // 样式编译
-gulp.task('sass', gulp.series('element-font'), done => {
+gulp.task('sass', (done) => {
   var array = [
     './src/scss/style.scss'
   ]
@@ -25,10 +25,12 @@ gulp.task('sass', gulp.series('element-font'), done => {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({
-      browsers: ['last 20 versions', 'ie > 8']
+      browserslist: ['last 20 versions', 'ie > 8']
     }))
     .pipe(cleanCSS())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./public/static/css'))
   done()
 })
+
+gulp.task('default', gulp.series('sass', 'element-font'))
