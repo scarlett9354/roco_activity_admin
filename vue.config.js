@@ -27,9 +27,9 @@ module.exports = {
     index: {
       entry: 'src/entries/main.js'
     },
-  //   login: {
-  //     entry: 'src/entries/login.js'
-  //   }
+    login: {
+      entry: 'src/entries/login.js'
+    }
   },
   devServer: {
     proxy
