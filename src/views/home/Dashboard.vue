@@ -1,9 +1,9 @@
 <template>
-  <div>首页1</div>
+  <div>首页a</div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'HomeDashboard'
 }
 </script>

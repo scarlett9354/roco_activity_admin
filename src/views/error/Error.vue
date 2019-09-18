@@ -1,9 +1,9 @@
 <template>
-  <div>首页1</div>
+  <div>错误页</div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Error'
 }
 </script>
