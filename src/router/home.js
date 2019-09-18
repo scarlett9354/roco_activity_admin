@@ -1,4 +1,5 @@
 export default {
-  path: '/',
-  name: 'Home'
+  path: '/dashboard',
+  name: 'Home',
+  // redirect: '/dashboard'
 }
