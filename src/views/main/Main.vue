@@ -1,5 +1,5 @@
 <template>
-  <el-container class="wrapper">
+  <el-container v-if="initialized" class="wrapper">
     <el-aside class="menu">
       <r-nav></r-nav>
     </el-aside>
@@ -23,12 +23,21 @@
 import Nav from './Nav'
 import Header from './Header'
 import Tag from './Tag'
+import { mapState } from 'vuex'
 export default {
   name: 'Main',
   components: {
     'r-nav': Nav,
     'r-header': Header,
     'r-tag': Tag
+  },
+  created() {
+    this.$store.commit('setInitialized', true)
+  },
+  computed: {
+    ...mapState({
+      initialized: state => state.initialized
+    })
   }
 }
 </script>
