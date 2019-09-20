@@ -1,16 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import _ from 'lodash'
 import utils from '@/utils'
 
 import Main from '@/views/main/Main'
 import HomeMenu from './home'
+import SystemMenu from './system'
 import ErrorMenu from './error'
 import _404Menu from './404'
 
 Vue.use(Router)
 
-let MenuList = [
-  HomeMenu
+export function getMenuList() {
+  return _.cloneDeep(MenuList)
+}
+export const MenuList = [
+  HomeMenu,
+  SystemMenu
 ]
 
 // 为根路径全部授予Main组件 保证Main一直存在
@@ -39,5 +45,4 @@ router.beforeEach((to, from, next) => {
     })
   }
 })
-console.log(MenuList)
 export default router

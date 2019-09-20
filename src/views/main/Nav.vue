@@ -39,9 +39,6 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 export default {
-  created() {
-    console.log(this.menuList)
-  },
   computed: {
     ...mapState({
       menuList: state => state.main.menuList
