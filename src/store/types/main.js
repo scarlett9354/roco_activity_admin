@@ -1,1 +1,4 @@
+export const MAIN_SET_USER = 'MAIN_SET_USER'
+export const MAIN_FETCH_USER = 'MAIN_FETCH_USER'
+
 export const MAIN_MAKE_MENU = 'MAIN_MAKE_MENU'
