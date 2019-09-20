@@ -3,6 +3,7 @@
 @import "../../node_modules/quill/dist/quill.snow.css";
 @import "animations.scss";
 @import "login.scss";
+@import "activity-rule-table.scss";
 
 $tags-con-height: 54px;
 html,body{
@@ -96,6 +97,7 @@ a:active{
   box-shadow: 1px 1px 2px #dddddd;
   position: relative;
   z-index: 11;
+  overflow-x: hidden;
 }
 .content {
   padding: 0 10px 0 10px;

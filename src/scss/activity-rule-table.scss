@@ -1,0 +1,41 @@
+.rule{
+  .space-10{
+    height: 10px;
+  }
+  .my-table{
+    border: 1px solid #dcdfe6;
+    display: flex;
+    overflow-y: hidden;
+    .my-table-col{
+      .num-red{
+        color: red;
+      }
+      &.time{
+        width: 200px;
+        min-width: 200px;
+      }
+      &.num{
+        width: 80px;
+        min-width: 80px;
+      }
+      &.small{
+        width: 80px;
+        min-width: 80px;
+      }
+      text-align: center;
+      border-right: 1px solid #dcdfe6;
+      .my-table-tr{
+        line-height: 30px;
+        font-size: 12px;
+        border-bottom: 1px solid #dcdfe6;
+      }
+
+      .my-table-td{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 5px;
+      }
+    }
+  }
+}
