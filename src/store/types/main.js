@@ -2,4 +2,7 @@ export const MAIN_SET_USER = 'MAIN_SET_USER'
 export const MAIN_FETCH_USER = 'MAIN_FETCH_USER'
 
 export const MAIN_MAKE_MENU = 'MAIN_MAKE_MENU'
+
 export const MAIN_ADD_OPEN_PAGE = 'MAIN_ADD_OPEN_PAGE'
+
+export const MAIN_TOGGLE_MENU = 'MAIN_TOGGLE_MENU'

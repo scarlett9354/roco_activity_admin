@@ -52,6 +52,9 @@ export default {
             let obj = Object.assign({}, {
               system: {
                 checked: true
+              },
+              systemplatform: {
+                checked: true
               }
             }, res.data.data.allPermission)
             res.data.data.allPermission = obj
