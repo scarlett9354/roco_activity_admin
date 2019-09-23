@@ -4,7 +4,7 @@
       <div class="main-logo_con" :style="logoStyle">
         活动平台
       </div>
-      <el-menu>
+      <el-menu @select="selectHandler" :default-active="currentPageName" :collapse="isCollapse">
         <template v-for="menu in menuList">
           <template v-if="menu.access">
             <template v-if="menu.isSingle">
@@ -38,10 +38,30 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import utils from '@/utils'
 export default {
+  methods: {
+    selectHandler(key, keyPath) {
+      if(this.cachePageList.indexOf(key) === -1) {
+        if(this.pageListLength >= this.maxPageListLength) {
+          this.$message({
+            showClose: true,
+            message: `已经打开了${this.maxPageListLength}个页面,请先关闭不常用的再打开新页`,
+            type: 'warning'
+          })
+          return false
+        }
+      }
+      utils.openNewPage(this, key)
+    }
+  },
   computed: {
     ...mapState({
-      menuList: state => state.main.menuList
+      menuList: state => state.main.menuList,
+      currentPageName: state => state.main.currentPageName,
+      cachePageList: state => state.main.cachePageList,
+      pageListLength: state => state.main.pageList.length,
+      maxPageListLength: state => state.main.maxPageListLength
     }),
     ...mapGetters({
       isCollapse: 'mainMenuCollapse'

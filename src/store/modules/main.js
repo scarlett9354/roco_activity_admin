@@ -1,12 +1,19 @@
 import * as MainTypes from '../types/main'
-import { DefaultIndexName } from '@/router/default-index'
+import { DefaultIndexTitle, DefaultIndexName } from '@/router/default-index'
 import axios from 'axios'
 
 const state = {
   user: {},
   collapse: false,
   menuList: null,
-  cachePageList: [DefaultIndexName]
+  currentPageName: DefaultIndexName,
+  cachePageList: [DefaultIndexName],
+  pageList: [{
+    title: DefaultIndexTitle,
+    name: DefaultIndexName
+  }],
+  maxPageListLength: 10,
+  tagList: {}
 }
 
 const actions = {
@@ -24,6 +31,11 @@ const mutations = {
   // 制作菜单
   [MainTypes.MAIN_MAKE_MENU](state, menuList) {
     state.menuList = menuList
+  },
+  // 打开新页面
+  [MainTypes.MAIN_ADD_OPEN_PAGE](state, page) {
+    state.cachePageList.push(page.name)
+    state.pageList.push(page)
   }
 }
 
