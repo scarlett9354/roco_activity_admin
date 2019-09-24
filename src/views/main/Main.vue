@@ -69,6 +69,7 @@ export default {
     setUser(user) {
       this.$store.commit(MainTypes.MAIN_SET_USER, user)
       this.$store.commit(MainTypes.MAIN_MAKE_MENU, this.makeMenuList(getMenuList()))
+      this.$store.commit(MainTypes.MAIN_MAKE_TAG_LIST, getMenuList())
     },
     makeMenuList(menuList) {
       let _list = []

@@ -41,7 +41,7 @@ import { mapState, mapGetters } from 'vuex'
 import utils from '@/utils'
 export default {
   methods: {
-    selectHandler(key, keyPath) {
+    async selectHandler(key, keyPath) {
       if(this.cachePageList.indexOf(key) === -1) {
         if(this.pageListLength >= this.maxPageListLength) {
           this.$message({
@@ -53,6 +53,14 @@ export default {
         }
       }
       utils.openNewPage(this, key)
+      try {
+        if(key !== this.currentPageName) {
+          const res = await this.$router.push({ name: key })
+          console.log(res)
+        }
+      }catch(e) {
+        console.log(e)
+      }
     }
   },
   computed: {
